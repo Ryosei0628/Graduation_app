@@ -4,5 +4,14 @@ module.exports = {
     './app/helpers/**/*.rb',
     './app/assets/stylesheets/**/*.css',
     './app/javascript/**/*.js'
-  ]
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: '#5A7B8C',  // 例: プライマリーカラーの定義
+        secondary: '#EDEDED', // 例: セカンダリーカラーの定義      
+      },
+    },
+  },
+  plugins: [],
 }
