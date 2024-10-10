@@ -14,38 +14,38 @@
 
     <section class="flex flex-col items-center  mt-10"> 
         <h2 class="text-2xl font-extrabold mb-4">Zen Focusの使い方</h2>
-        <ul class="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <li class="flex flex-col lg:flex-row items-center bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4">
-                <div class="lg:mr-4"><%= image_tag 'zenfocus_registraion.png', alt: 'ロゴ画像', class: 'w-auto h-auto lg:w-52 lg:h-auto'%></div>
-                <div class="flex flex-col text-center">
-                  <h2 class="font-bold lg:mb-5">その１. ユーザー登録</h2>
+        <ul class="grid grid-cols-1 gap-4 lg:grid-cols-2 lg:w-3/4 ">
+            <li class="flex flex-col lg:flex-row  items-center bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4">
+                <div class="w-48 h-32 mb-4  lg:mr-4"><%= image_tag 'zenfocus_registraion.png', alt: 'ロゴ画像', class: 'object-cover w-full h-full'%></div>
+                <div class="flex flex-col text-center lg:w-2/3 lg:flex-grow ">
+                  <h2 class="font-bold mb-5">その１. ユーザー登録</h2>
                   <p>簡単な手続きでアカウントを作成し<br>
                     全機能にアクセスできるようになります。<br>
-                    登録後は、静かな場所を検索したり<span class="hidden lg:inline"><br></span>
+                    登録後は、静かな場所を検索したり
                     投稿したりすることが可能です。</p>
                 <div>
             </li>
-            <li class="flex flex-col lg:flex-row items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4">
-                <div class="lg:mr-4"><%= image_tag 'zenfocus_location', alt: 'ロゴ画像', class: 'w-auto h-auto lg:w-52 lg:h-auto'%></div>
-                <div class="flex flex-col text-center">
-                  <h2 class="font-bold lg:mb-5">その２. 場所を検索</h2>
-                  <p>地図や検索バーを活用して<span class="hidden lg:inline"><br></span>勉強や作業に適した静かな場所を見つけます。<span class="hidden lg:inline"><br></span>
-                    地域やジャンルでフィルタリングすることもできるので、<span class="hidden lg:inline"><br></span>
+            <li class="flex flex-col lg:flex-row items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4 ">
+                <div class="w-48 h-32 mb-4 lg:mr-4"><%= image_tag 'zenfocus_location', alt: 'ロゴ画像', class: 'object-cover w-full h-full'%></div>
+                <div class="flex flex-col text-center lg:w-2/3 lg:flex-grow">
+                  <h2 class="font-bold mb-5">その２. 場所を検索</h2>
+                  <p>地図や検索バーを活用して勉強や作業に適した静かな場所を見つけます。
+                    地域やジャンルでフィルタリングすることもできるので、
                     自分のニーズに合ったスポットを簡単に見つけられます。</p>
                 <div>
             </li>
-            <li class="flex flex-col items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4">
-                <div class="lg:mr-4"><%= image_tag 'zenfocus_post', alt: 'ロゴ画像', class: 'w-auto h-auto lg:w-52 lg:h-auto'%></div>
-                <div class="flex flex-col text-center">
-                  <h2 class="font-bold lg:mb-5">その３. 場所を投稿</h2>
+            <li class="flex flex-col lg:flex-row items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4 ">
+                <div class=" w-48 h-32 mb-4 lg:mr-4"><%= image_tag 'zenfocus_post', alt: 'ロゴ画像', class: 'object-cover w-full h-full'%></div>
+                <div class="flex flex-col text-center lg:w-2/3 lg:flex-grow">
+                  <h2 class="font-bold mb-5">その３. 場所を投稿</h2>
                   <p>自分が見つけた静かなスポットをアプリに投稿できます。写真やコメントを追加して、他のユーザーにその場所の良さを伝えましょう。自分の経験をシェアすることで、コミュニティに貢献できます</p>
                 </div>
             </li>
-            <li class="flex flex-col items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4">
-                <div class="lg:mr-4"><%= image_tag 'zenfocus_review', alt: 'ロゴ画像', class: 'w-auto h-auto lg:w-52 lg:h-auto'%></div>
-                <div class="flex flex-col text-center">
-                  <h2 class="font-bold lg:mb-5">その４. レビューを残す(随時実装予定)</h2>
-                  <p>他のユーザーが投稿した場所に対して、評価やコメントを残すことができます。実際に行った感想を共有することで、他のユーザーがより良い選択をできるようサポートしましょう。また、自分の評価を参考に、他の場所を見つける手助けにもなります。</p>
+            <li class="flex flex-col lg:flex-row  items-center  bg-white border border-gray-200 rounded-lg shadow-md p-4 mb-4 ">
+                <div class="w-48 h-32 mb-4 lg:mr-4"><%= image_tag 'zenfocus_review', alt: 'ロゴ画像', class: 'object-cover w-full h-full'%></div>
+                <div class="flex flex-col text-center lg:w-2/3 ">
+                  <h2 class="font-bold mb-5">その４. レビューを残す(実装予定)</h2>
+                  <p>他のユーザーが投稿した場所に対し評価やコメントを残すことができます。他のユーザーがより良い選択をできるようサポートしましょう。また、自分の評価を参考に、他の場所を見つける手助けにもなります。</p>
                 </div>
             </li>
         </ul>
@@ -55,7 +55,7 @@
     
     
 
-    <section>
+    <section class="mt-10">
         <h2 class="text-xl font-semibold mb-4">おすすめの場所</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             <div class="bg-secondary p-4 rounded shadow">
