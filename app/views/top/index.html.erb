@@ -1,12 +1,12 @@
-<main class= "flex-grow p-4">
+<main class= "flex-grow p-4 font-Kaisei">
    <section class="mt-10">
     <div class="flex flex-col lg:flex-row lg:items-center lg:justify-center">
         <div class="lg:mb-0 lg:mr-10"><%= image_tag 'logo.png', alt: 'ロゴ画像' %></div>
         <div class="text-center px-2 py-8">
-            <h1 class="text-4xl font-black mb-8 ">Zen Focus</h1>
+            <h1 class="text-4xl font-black mb-8 font-Spicyrice ">Zen Focus</h1>
             <p class="mb-4">zenfocusは、勉強や作業に最適な静かな場所を<br>見つけるためのアプリです。<br>ユーザーのレビューや評価を基に<br>あなたにぴったりの場所を提案します。</p>
             <a class="inline-flex items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3">ユーザー登録</a>
-            <a class="inline-flex items-center bg-subbutton hover:bg-green-700 text-black rounded px-5 py-3">ログインする</a>
+            <a class="inline-flex items-center bg-subbutton hover:bg-blue-100 text-black rounded px-5 py-3">ログインする</a>
 
         </div>
     </div>
@@ -55,22 +55,41 @@
     
     
 
-    <section class=" text-center items-center mt-10">
-        <h2 class="text-xl font-semibold mb-4">こんな方におすすめ！！</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div class="bg-secondary p-4 rounded shadow">
-                <h3 class="font-bold">静かなカフェ</h3>
-                <p>勉強に最適な環境が整っています。</p>
+    <section class="items-center mt-10 lg:w-3/4 mx-auto">
+        <h2 class="text-2xl font-extrabold mb-6 text-center">Zen Focusはこんな方におすすめ</h2>
+        <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+            <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md p-4">
+                <h3 class="font-bold mb-6">集中して作業したい方へ</h3>
+                <div class="w-96 h-64 mb-10 lg:mr-4"><%= image_tag 'study.png', alt: 'ロゴ画像', class: 'object-contain w-full h-full'%></div>
+                <ul class="list-disc pl-5 text-left">
+                    <li>雑音を避けて集中したい方</li>
+                    <li>静かなカフェや図書館を求める方</li>
+                    <li>集中力を持続させるための環境を整えたい方</li>
+                </ul>
             </div>
-            <div class="bg-secondary p-4 rounded shadow">
-                <h3 class="font-bold">図書館</h3>
-                <p>集中できる静かな場所です。</p>
+    
+            <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md p-4">
+                <h3 class="font-bold mb-6">リラックスしながら作業したい方へ</h3>
+                <div class="w-96 h-64 mb-10  lg:mr-4"><%= image_tag 'relax.png', alt: 'ロゴ画像', class: 'object-contain w-full h-full'%></div>
+                <ul class="list-disc pl-5 text-left">
+                    <li>ストレスを軽減しながら作業したい方</li>
+                    <li>自然を感じられる静かな場所を探している方</li>
+                    <li>落ち着いた雰囲気で効率的に作業したい方</li>
+                </ul>
             </div>
-            <div class="bg-secondary p-4 rounded shadow">
-                <h3 class="font-bold">公園のベンチ</h3>
-                <p>自然の中でリラックスしながら勉強できます。</p>
+    
+            <div class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow-md p-4">
+                <h3 class="font-bold mb-6">新しいお気に入り場所を見つけたい方へ</h3>
+                <div class="w-96 h-64 mb-10  lg:items-center lg:mr-4 "><%= image_tag 'favorite.png', alt: 'ロゴ画像', class: 'object-contain w-full h-full'%></div>
+                <ul class="list-disc pl-5 text-left">
+                    <li>日常から少し離れた隠れ家的な場所を発見したい方に</li>
+                    <li>静かで特別なカフェや公園など、特別な場所を提案します</li>
+                </ul>
             </div>
         </div>
     </section>
+
+     <div class="text-center  text-2xl mt-10"><p class="font-Spicyrice">Let's find a sanctuary for your productivity!!</p></div>
+    <div class=" text-center mt-20"><a class="inline-flex items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3">ユーザー登録</a></div> 
 </main>
 

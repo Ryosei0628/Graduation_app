@@ -13,6 +13,10 @@ module.exports = {
         button: '#4C6B5C',
         subbutton: '#A3C1DA'    
       },
+      fontFamily: {
+        Spicyrice: ['Spicy Rice', 'serif'],
+        Kaisei: ['Kaisei Decol', 'serif']
+          }
     },
   },
   plugins: [],
