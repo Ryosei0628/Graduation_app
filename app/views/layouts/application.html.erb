@@ -21,7 +21,11 @@
    <% else %>
      <%= render 'shared/before_login_header'%>
    <% end %>
- <main><%= yield %></main>  
-   <%= render 'shared/btmnav'%>
+ <main><%= yield %></main> 
+   <% if logged_in? %>
+     <%= render 'shared/btmnav'%>
+   <% else %>
+     <%= render 'shared/before_login_btmnav'%>
+   <% end %>
  </body>
 </html>
