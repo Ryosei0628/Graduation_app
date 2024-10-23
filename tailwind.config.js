@@ -12,7 +12,7 @@ module.exports = {
         secondary: '#EDEDED', // 例: セカンダリーカラーの定義  
         button: '#4C6B5C',
         subbutton: '#A3C1DA',
-        menu:'#4A6B7C'
+        menu:'#4A6B7C',
 
       },
       fontFamily: {

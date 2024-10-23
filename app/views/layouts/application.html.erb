@@ -16,10 +16,16 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
   </head>
  <body class="m-0 p-0">
-   <%= render 'shared/header'%>
-   <main><%= yield %></main> 
-   <%= render 'shared/btmnav'%>
-
-  
-  </body>
+   <% if logged_in? %>
+     <%= render 'shared/header'%>
+   <% else %>
+     <%= render 'shared/before_login_header'%>
+   <% end %>
+ <main><%= yield %></main> 
+   <% if logged_in? %>
+     <%= render 'shared/btmnav'%>
+   <% else %>
+     <%= render 'shared/before_login_btmnav'%>
+   <% end %>
+ </body>
 </html>

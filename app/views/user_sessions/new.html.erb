@@ -22,6 +22,9 @@
 
         <div class="mt-8 text-center">
       <%= f.submit "ログイン", class: "bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
+       <p class="text-gray-800 text-sm mt-8 text-center">
+        <%= link_to 'まだアカウントをお持ちでない方→',new_user_path , class: "text-blue-500 hover:underline ml-1" %>
+      <p>
       </div>
 
     <% end %>
