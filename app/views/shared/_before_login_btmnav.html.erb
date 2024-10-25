@@ -1,39 +1,39 @@
 <nav id="buttom-navbar" class="fixed bottom-0 left-0 right-0 bg-primary px-2 py-1">
   <ul class="flex justify-center items-center">
-    <li class="mx-2md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
-      <%= link_to root_path do %>
-      <button class="group inline-block text-center m-2">
-        <i class="custom-icon fa-solid fa-house fa-xl"></i>
-        <p class="icon-text font-Spicyrice"><%= t('defaults.home') %></p>
-      </button>
-    <% end %>
+    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+      <%= link_to root_path, class: "group block text-center m-2" do %>
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-house fa-xl mt-2 mb-2"></i>
+          <p class="icon-text font-Spicyrice"><%= t('defaults.home') %></p>
+        </div>
+      <% end %>
     </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
-      <%= link_to  do %>
-        <button class="group inline-block text-center m-2">
-          <i class="fa-solid fa-list fa-xl"></i>
+
+    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+      <%= link_to root_path,   class: "group block text-center m-2" do %>
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-list fa-xl mt-2 mb-2"></i>
           <p class="icon-text font-Spicyrice"><%= t('defaults.lists') %></p>
-        </button>
+        </div>
       <% end %>
     </li>
+
     <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
-      <%= link_to  do %>
-        <button class="group inline-block text-center m-2">
-        <i class="custom-icon fa-solid fa-plus fa-xl "></i>
-          <p class="icon-text font-Spicyrice "><%= t('defaults.post') %></p>
-        </button>
+      <%= link_to root_path,  class: "group block text-center m-2" do %>
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-plus fa-xl mt-2 mb-2"></i>
+          <p class="icon-text font-Spicyrice"><%= t('defaults.post') %></p>
+        </div>
       <% end %>
     </li>
+
     <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
-      <%= link_to  do %>
-        <button class="group inline-block text-center m-2">
-        <i class="fa-solid fa-right-to-bracket fa-xl"></i>
+      <%= link_to login_path, class: "group block text-center m-2" do %>
+        <div class="flex flex-col items-center">
+          <i class="fa-solid fa-right-to-bracket fa-xl mt-2 mb-2 "></i>
           <p class="icon-text font-Spicyrice"><%= t('defaults.login') %></p>
-        </button>
+        </div>
       <% end %>
     </li>
   </ul>
 </nav>
-
-
-
