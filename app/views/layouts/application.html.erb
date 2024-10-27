@@ -21,7 +21,10 @@
    <% else %>
      <%= render 'shared/before_login_header'%>
    <% end %>
- <main><%= yield %></main> 
+     <%= render 'shared/flash_message'%>
+ 
+   <%= yield %>
+ 
    <% if logged_in? %>
      <%= render 'shared/btmnav'%>
    <% else %>
