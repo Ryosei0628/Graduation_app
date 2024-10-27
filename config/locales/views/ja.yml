@@ -13,11 +13,19 @@ ja:
       login: ログイン
       to_register_page: まだアカウントをお持ちでない方→
       password_forget: パスワードをお忘れの方はこちら
+    create:
+      success: ログインしました
+      failure: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
   users:
     new:
       title: ユーザー登録
       signup: ユーザー登録
       to_login_page: 既にアカウントをお持ちの方→
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
   header:
     title: Zen Focus
     login: ログイン
