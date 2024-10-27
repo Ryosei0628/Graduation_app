@@ -4,7 +4,7 @@
       <%= link_to root_path do %>
       <button class="group inline-block text-center m-2">
       <i class="fa-solid fa-map-location"></i>
-        <p class="icon-text font-Spicyrice"><%= t('defaults.location') %></p>
+        <p class="icon-text font-Spicyrice"><%= t('btmnav.home') %></p>
       </button>
     <% end %>
     </li>
@@ -12,7 +12,7 @@
       <%= link_to  do %>
         <button class="group inline-block text-center m-2">
           <i class="fa-solid fa-list fa-xl"></i>
-          <p class="icon-text font-Spicyrice"><%= t('defaults.lists') %></p>
+          <p class="icon-text font-Spicyrice"><%= t('btmnav.list') %></p>
         </button>
       <% end %>
     </li>
@@ -20,7 +20,7 @@
       <%= link_to  do %>
         <button class="group inline-block text-center m-2">
         <i class="custom-icon fa-solid fa-plus fa-xl "></i>
-          <p class="icon-text font-Spicyrice "><%= t('defaults.post') %></p>
+          <p class="icon-text font-Spicyrice "><%= t('btmnav.post') %></p>
         </button>
       <% end %>
     </li>
@@ -28,7 +28,7 @@
     <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete, confirm: '本当にログアウトしますか？' } %>
         <button class="group inline-block text-center m-2">
         <i class="fa-solid fa-right-from-bracket"></i>
-          <p class="icon-text font-Spicyrice"><%= t('defaults.logout') %></p>
+          <p class="icon-text font-Spicyrice"><%= t('btmnav.logout') %></p>
         </button>
       <% end %>
     </li>
