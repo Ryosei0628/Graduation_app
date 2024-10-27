@@ -1,12 +1,12 @@
 <header class="flex justify-between items-center h-20 p-6 fixed top-0 left-0 w-full bg-primary z-10">
-    <a class="text-2xl font-Spicyrice z-20">Zen Focus</a>
+    <a class="text-2xl font-Spicyrice z-20"><%= t('header.title') %></a>
     
     
     <!-- PC時に表示するナビゲーション -->
     <nav class="hidden md:flex items-center space-x-8 font-Kaisei font-semibold"> <!-- md以上で表示 -->
-        <%= link_to 'このアプリについて', root_path, class: "text-lg hover:text-white rounded" %>
-        <%= link_to 'ユーザー登録', new_user_path, class: "text-lg hover:text-white" %>
-        <%= link_to 'ログイン', login_path, class: 'text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center' %>
+        <%= link_to t('header.description'), root_path, class: "text-lg hover:text-white rounded" %>
+        <%= link_to t('header.signup'), new_user_path, class: "text-lg hover:text-white" %>
+        <%= link_to t('header.login'), login_path, class: 'text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center' %>
 
     </nav>
     
@@ -21,8 +21,8 @@
     
     <!-- モバイル用メニュー -->
     <ul id="menu" class="z-0 fixed top-0 left-0 w-full h-full text-center bg-menu font-bold translate-x-full transition duration-500 ease-linear flex flex-col items-start">
-        <li class="pt-24 p-3"><%= link_to 'このアプリについて', root_path, class: 'text-lg hover:text-white' %></li>
-        <li class="p-3"><%= link_to 'ユーザー登録', new_user_path, class: 'text-lg hover:text-white' %></li>
-        <li class="p-3"><%= link_to '一覧を見る', new_user_path, class: 'text-lg hover:text-white' %></li>
+        <li class="pt-24 p-3"><%= link_to t('header.description'), root_path, class: 'text-lg hover:text-white' %></li>
+        <li class="p-3"><%= link_to t('header.signup'), new_user_path, class: 'text-lg hover:text-white' %></li>
+        <li class="p-3"><%= link_to t('header.list'), new_user_path, class: 'text-lg hover:text-white' %></li>
     </ul>
 </header>

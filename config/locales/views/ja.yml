@@ -1,0 +1,33 @@
+ja:
+  helpers:
+    submit:
+      create: 登録
+      submit: 保存
+      update: 更新
+    label:
+      email: メールアドレス
+      password: パスワード
+  user_sessions:
+    new:
+      title: ログイン
+      login: ログイン
+      to_register_page: まだアカウントをお持ちでない方→
+      password_forget: パスワードをお忘れの方はこちら
+  users:
+    new:
+      title: ユーザー登録
+      signup: ユーザー登録
+      to_login_page: 既にアカウントをお持ちの方→
+  header:
+    title: Zen Focus
+    login: ログイン
+    logout: ログアウト
+    signup: ユーザー登録
+    description: このアプリについて
+    list: 一覧を見る
+  btmnav:
+    home: Home
+    list: List
+    post: Post
+    login: Login
+    logout: Logout
