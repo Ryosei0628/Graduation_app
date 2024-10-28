@@ -5,6 +5,7 @@ class Post < ApplicationRecord
   validates :start_minute, :end_minute, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 60 }
   validates :description, presence: true, length: { maximum: 65_535 }
   validates :quiet_level, presence: true
+  validates :genre, presence: true
 
 
   belongs_to :user
