@@ -1,9 +1,12 @@
-<div class='container px-5 py24 mx-auto pt-80'>
-    <div class="flex flex-wrap m-4 ">
+<div class='container px-5 py24 mx-auto mt-20'>
+    <div class="flex flex-wrap m-4">
+    <div class="mt-10">
+      <h1 class="font-Kaisei text-2xl text-center">みんなのおすすめスポット</h1>
+    </div>
         <% if @posts.present? %>
             <%= render @posts %>
         <% else %>
-            <div class= 'text-lg m-auto font-Kaisei'>投稿はありません</div>
+            <div class= 'text-lg m-auto font-Kaisei mt-20'>投稿はありません</div>
         <% end %>
     </div>
 </div>
