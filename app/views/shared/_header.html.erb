@@ -5,21 +5,24 @@
     <nav class="hidden md:flex items-center space-x-8 font-Kaisei font-semibold"> <!-- md以上で表示 -->
         <%= link_to t('header.description'), root_path, class: "text-lg hover:text-white rounded" %>
         <%= link_to t('header.signup'), new_user_path, class: "text-lg hover:text-white" %>
-        <%= link_to t('header.logout'), class: 'text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center' %>
+        <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete }, class: 'text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center' %>
 
     </nav>
     
     
     <!-- モバイル時に表示するハンバーガーメニュー -->
-    <button id="button" type="button" class="md:hidden fixed z-10 top-6 right-6"> <!-- md未満で表示 -->
+    <div class="md:hidden flex items-center">
+    <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete } , class: 'font-Kaisei text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-12'%>
+    <button id="button" type="button" class="fixed z-10 top-6 right-6"> <!-- md未満で表示 -->
       <i id="bars" class="fa-solid fa-bars fa-2x"></i>
       <i id="x" class="fa-solid fa-x fa-2x hidden"></i>
     </button>
+    </div>
     
     <!-- モバイル用メニュー -->
-    <ul id="menu" class="z-0 fixed top-0 left-0 w-full h-full text-center bg-menu font-bold translate-x-full transition duration-500 ease-linear flex flex-col items-start">
+    <ul id="menu" class="z-15 fixed top-0 left-0 w-full h-full text-center bg-menu font-bold translate-x-full transition duration-500 ease-linear flex flex-col items-start">
     <li class="pt-24 p-3"><%= link_to t('header.post'), class: 'text-lg hover:text-white' %></li>
     <li class="p-3"><%= link_to t('header.list'), posts_path,class: 'text-lg hover:text-white' %></li>
-    <li class="p-3"><%= link_to t('header.logout'),logout_path, data:{turbo_method: :delete, confirm: '本当にログアウトしますか'},class: 'text-lg hover:text-white' %></li>
+    <li class="p-3"><%= link_to t('header.logout'),logout_path, data:{turbo_method: :delete},class: 'text-lg hover:text-white' %></li>
     </ul>
 </header>
