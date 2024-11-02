@@ -6,7 +6,7 @@
     <%= form_with model: @post do |f| %>
         <div class='mb-6 flex flex-col items-center'>
           <%= f.label :genre, 'スポットのジャンル', class: 'label w-full lg:w-2/3 mb-2' %>
-          <%= f.select :genre, Post.genres.keys.map { |key| [key.humanize, key] }, { include_blank: "未選択" },
+          <%= f.select :genre, Post.genres_i18n.invert.to_a, { include_blank: "未選択" },
                       class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full lg:w-2/3' %>
         </div>
         
