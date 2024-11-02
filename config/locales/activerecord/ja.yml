@@ -8,6 +8,21 @@ ja:
         coworking_space: コワーキングスペース
         study_room: 自習室
         other: その他
+      wifi:
+        available: 有
+        not_available: 無
+      electricity: 
+        is_available: 有
+        isnot_available: 無
+      quiet_level:
+        noisy: 活気ある静けさ(少しざわついているが作業に集中できる環境)
+        slightly_quiet: ざわめき程度の静けさ(人の話し声が少し聞こえるが気にならない程度)
+        relatively_quiet: 穏やかな静けさ (落ち着いていて、人が少し話している程度の静かさ)
+        quiet: ささやき程度の静けさ (わずかにささやき声が聞こえるくらいの静けさ)
+        very_quiet: 耳をすます静けさ (ほとんど音が聞こえない、完全に集中できる静けさ)
+
+
+        
   activerecord:
     models:
       user: ユーザー
