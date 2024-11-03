@@ -7,6 +7,15 @@ class Post < ApplicationRecord
   validates :quiet_level, presence: true
   validates :genre, presence: true
 
+  enum genre: { cafe: 0, library: 1, park: 2, coworking_space: 3, study_room: 4, other: 5 } 
+  enum wifi: {available: 0, not_available: 2}
+  enum electricity: {is_available: 0, isnot_available: 2}
+  enum quiet_level: {noisy: 1,# 日常の騒がしさ　
+  slightly_quiet: 2, # 少し静か
+  relatively_quiet: 3, # 比較的静か
+  quiet: 4,         # 静か
+  very_quiet: 5 }
+
 
   belongs_to :user
 end
