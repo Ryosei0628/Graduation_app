@@ -20,9 +20,6 @@ ja:
         relatively_quiet: 穏やかな静けさ (落ち着いていて、人が少し話している程度の静かさ)
         quiet: ささやき程度の静けさ (わずかにささやき声が聞こえるくらいの静けさ)
         very_quiet: 耳をすます静けさ (ほとんど音が聞こえない、完全に集中できる静けさ)
-
-
-        
   activerecord:
     models:
       user: ユーザー
@@ -32,3 +29,11 @@ ja:
         username: ユーザー名
         password: パスワード
         password_confirmation: パスワード確認
+      post:
+        genre:
+          cafe: カフェ
+          library: 図書館
+          park: 公園
+          coworking_space: コワーキングスペース
+          study_room: 自習室
+          other: その他
