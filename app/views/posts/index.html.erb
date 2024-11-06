@@ -1,12 +1,10 @@
-<div class='container px-5 py-24 mx-auto text-center'>
-    <div class="flex flex-wrap justify-center m-4">
-        <div class="w-full">
-            <h1 class="text-2xl">みんなのおすすめスポット</h1>
-        </div>
-        <% if @posts.present? %>
-            <%= render @posts %>
-        <% else %>
-            <div class="text-lg m-auto mt-20">投稿はありません</div>
-        <% end %>
+<div class='py-0 px-5 my-0 mx-auto max-w-screen-xl h-full text-center mt-10'>  
+    <h1 class="text-2xl">みんなのおすすめスポット</h1>
+    <% if @posts.present? %>
+    <div class="mb-10 md:grid md:grid-cols-2 md:gap-4">
+      <%= render @posts %>
     </div>
+    <% else %>
+   <div class="text-lg m-auto mt-20">投稿はありません</div>
+    <% end %>
 </div>
