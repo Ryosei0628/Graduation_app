@@ -42,6 +42,7 @@ ja:
     list: 一覧を見る
     post: 投稿する
   btmnav:
+    map: Map
     home: Home
     list: List
     post: Post
