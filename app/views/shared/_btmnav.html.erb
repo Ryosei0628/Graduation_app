@@ -1,14 +1,14 @@
-<nav id="buttom-navbar" class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-base-200 border border-gray-200 rounded-full bottom-4 left-1/2">
+<nav id="buttom-navbar" class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-primary border-lg border-gray-200 rounded-lg bottom-4 left-1/2">
   <ul class="flex justify-center items-center">
-    <li class="mx-2md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+    <li class="md:flex-grow-0 md:w-1/4 text-center hover:bg-white z-10 hover:rounded-full">
       <%= link_to root_path do %>
       <button class="group inline-block text-center m-2">
       <i class="fa-solid fa-map-location"></i>
-        <p class="icon-text font-Spicyrice"><%= t('btmnav.home') %></p>
+        <p class="icon-text font-Spicyrice"><%= t('btmnav.map') %></p>
       </button>
     <% end %>
     </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+    <li class="mx-2 md:flex-grow-0 md:w-1/4 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
       <%= link_to posts_path do %>
         <button class="group inline-block text-center m-2">
           <i class="fa-solid fa-list fa-xl"></i>
@@ -16,7 +16,7 @@
         </button>
       <% end %>
     </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
       <%= link_to  do %>
         <button class="group inline-block text-center m-2">
           <i class="custom-icon fa-solid fa-plus fa-xl "></i>
@@ -24,7 +24,7 @@
         </button>
       <% end %>
     </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-3xl">
+    <li class=" md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-lg hover:rounded-full">
       <%= link_to logout_path, data: { turbo_method: :delete, confirm: '本当にログアウトしますか？' } do %>
         <button class="group inline-block text-center m-2">
           <i class="fa-solid fa-right-from-bracket"></i>
