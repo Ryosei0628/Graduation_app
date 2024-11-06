@@ -13,7 +13,7 @@ module.exports = {
         button: '#4C6B5C',
         subbutton: '#A3C1DA',
         menu:'#4A6B7C',
-
+        card:'#F4F1E8'
       },
       fontFamily: {
         Spicyrice: ['Spicy Rice', 'serif'],

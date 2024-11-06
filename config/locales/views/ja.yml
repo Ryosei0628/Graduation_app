@@ -29,6 +29,10 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  posts:
+    post:
+      address: 住所
+      see_in_detail: 詳細を見る→
   header:
     title: Zen Focus
     login: ログイン
