@@ -1,6 +1,6 @@
 <nav id="buttom-navbar" class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-primary border-lg border-gray-200 rounded-lg bottom-4 left-1/2">
   <ul class="flex justify-center items-center">
-    <li class="md:flex-grow-0 md:w-1/4 text-center hover:bg-white z-10 hover:rounded-full">
+    <li class="md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
       <%= link_to root_path do %>
       <button class="group inline-block text-center m-2">
       <i class="fa-solid fa-map-location"></i>
@@ -27,7 +27,7 @@
     <li class=" md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-lg hover:rounded-full">
       <%= link_to logout_path, data: { turbo_method: :delete, confirm: '本当にログアウトしますか？' } do %>
         <button class="group inline-block text-center m-2">
-          <i class="fa-solid fa-right-from-bracket"></i>
+          <i class="fa-solid fa-right-from-bracket fa-xl"></i>
           <p class="icon-text font-Spicyrice"><%= t('btmnav.logout') %></p>
         </button>
       <% end %>
