@@ -30,6 +30,15 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
       post:
+        location_name: 場所の名前
+        address: 住所
+        start_hour: 営業開始時間
+        end_hour:  営業終了時間
+        start_minute: 営業開始時間(分)
+        end_minute: 営業終了時間(分)
+        description: 詳細
+        quiet_level: 静かさレベル
+
         genre:
           cafe: カフェ
           library: 図書館
