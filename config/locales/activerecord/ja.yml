@@ -38,6 +38,7 @@ ja:
         end_minute: 営業終了時間(分)
         description: 詳細
         quiet_level: 静かさレベル
+        post_image: 画像
 
         genre:
           cafe: カフェ
