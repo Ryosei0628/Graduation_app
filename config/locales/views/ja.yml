@@ -36,6 +36,10 @@ ja:
     create:
       success: 投稿が完了しました
       failure: 投稿に失敗しました
+    new:
+      to_register_page: まだアカウントをお持ちでない方→
+    show:
+      go_back_to_list: 一覧に戻る
   header:
     title: Zen Focus
     login: ログイン

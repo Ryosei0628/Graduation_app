@@ -10,9 +10,9 @@
       </h1>
     </div>
   </div>
-    <div class="w-full h-full md:w-1/3 grid place-items-center mb-5 md:mb-0 text-center">
+    <div class="w-full h-full grid place-items-center mb-5 text-center">
       <% if @post.post_image.present? %>
-        <%= image_tag @post.post_image.url, class: ' object-cover rounded-lg', alt: "サムネイル画像" %>
+        <%= image_tag @post.post_image.url, class: ' object-cover rounded-lg w-full', alt: "サムネイル画像" %>
       <% else %>
         <%= image_tag('logo.png', class: 'rounded-lg object-cover', alt: 'デフォルトサムネイル画像') %>
       <% end %>
@@ -21,7 +21,7 @@
     <table class="table-auto mx-auto  items-center  w-full table-fixed">
       <tbody>
         <tr>
-          <td class="border px-2 py-2">住所</td>
+          <td class="border px-2 py-2 w-1/5">住所</td>
           <td class="border px-2 py-2"><%= @post.address %></td>
         </tr>
         <tr>
@@ -69,4 +69,7 @@
       </tbody>
     </table>
     </div>
+    <div class="text-center mt-20">
+      <%= link_to t('.go_back_to_list'), posts_path, class: "items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
+    <div>
 </div>
