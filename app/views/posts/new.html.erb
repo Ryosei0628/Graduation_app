@@ -77,7 +77,8 @@
         <%= f.label :post_image,  class: "mb-2  md:w-2/3" %>
         <%= f.file_field :post_image,
           class:"w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded md:w-2/3" %>
-        </div>
+        <%= f.hidden_field :post_image_cache %>
+            </div>
 
         <div class="mt-8 mb-20 text-center">
         <%= f.submit '投稿する', class: "bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
