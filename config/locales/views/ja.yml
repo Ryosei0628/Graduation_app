@@ -10,6 +10,10 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  static_pages:
+    top:
+      signup: ユーザー登録
+      login: ログイン
   user_sessions:
     new:
       title: ログイン
@@ -36,6 +40,11 @@ ja:
     create:
       success: 投稿が完了しました
       failure: 投稿に失敗しました
+    new:
+      to_register_page: まだアカウントをお持ちでない方→
+      submit: 投稿する
+    show:
+      go_back_to_list: 一覧に戻る
   header:
     title: Zen Focus
     login: ログイン

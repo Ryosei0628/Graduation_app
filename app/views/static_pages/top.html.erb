@@ -5,8 +5,8 @@
         <div class="text-center px-2 py-8">
             <h1 class="text-4xl font-black mb-8 font-Spicyrice  ">Zen Focus</h1>
             <p class="mb-4">zenfocusは、勉強や作業に最適な静かな場所を<br>見つけるためのアプリです。<br>ユーザーのレビューや評価を基に<br>あなたにぴったりの場所を提案します。</p>
-            <%= link_to "ユーザー登録", new_user_path, class: "inline-flex items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
-            <%= link_to "ログインする", login_path, class: "inline-flex items-center bg-subbutton hover:bg-blue-100 text-black rounded px-5 py-3" %>
+            <%= link_to t('.signup'), new_user_path, class: "inline-flex items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
+            <%= link_to t('.login'), login_path, class: "inline-flex items-center bg-subbutton hover:bg-blue-100 text-black rounded px-5 py-3" %>
 
         </div>
     </div>
@@ -91,7 +91,7 @@
 
      <div class="text-center  text-2xl mt-10"><p class="font-Spicyrice">Let's find a sanctuary for your productivity!!</p></div>
      <div class="text-center mt-20">
-      <%= link_to "ユーザー登録", new_user_path, class: "items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
+      <%= link_to  t('.signup'), new_user_path, class: "items-center bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
     <div>
 </main>
 

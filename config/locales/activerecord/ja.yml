@@ -39,6 +39,9 @@ ja:
         description: 詳細
         quiet_level: 静かさレベル
         post_image: 画像
+        electricity: 電源
+        site_url: サイトURL
+        genre: スポットのジャンル
 
         genre:
           cafe: カフェ

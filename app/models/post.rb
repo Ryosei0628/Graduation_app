@@ -16,6 +16,10 @@ class Post < ApplicationRecord
   quiet: 4,         # 静か
   very_quiet: 5 }
 
+  def business_hours
+    "#{start_hour}時#{format('%02d', start_minute)}分 - #{end_hour}時#{format('%02d', end_minute)}分"
+  end
+
 
   belongs_to :user
   mount_uploader :post_image, PostImageUploader

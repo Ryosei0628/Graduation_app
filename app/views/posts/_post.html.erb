@@ -15,7 +15,7 @@
         <p class="md:text-base text-gray-500 text-sm"><%= t('.address')%> <%=post.address %></p>
         <p class="md:text-sm text-gray-600 text-base"><%= post.description.truncate(50) %></p>
         <div  class='text-right text-xs mt-3 mb-3'>
-                <span class='border-b border-gray-600'><%= t('.see_in_detail') %></span>    
+                <span class='border-b border-gray-600'><%= link_to t('.see_in_detail'), post_path(post) %></span>    
         </div>
     </div>
   </div>
