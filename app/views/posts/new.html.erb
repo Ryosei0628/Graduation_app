@@ -6,7 +6,7 @@
     <%= form_with model: @post do |f| %>
         <%= render 'shared/error_messages', object: f.object %>
         <div class='mt-10 mb-6 flex flex-col items-center'>
-          <%= f.label :genre, 'スポットのジャンル', class: 'label w-full lg:w-2/3 mb-2' %>
+          <%= f.label :genre, "スポットのジャンル",class: 'label w-full lg:w-2/3 mb-2' %>
           <%= f.select :genre, Post.genres_i18n.invert.to_a, { include_blank: "未選択" },
                       class: "form-input #{'border-red-500' if f.object.errors[:genre].present?}  bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full lg:w-2/3" %>
         </div>
@@ -24,35 +24,35 @@
         <div class='mb-6 flex flex-col items-center'>
           <div class="grid grid-cols-2 gap-2 w-full lg:w-2/3">
             <div class="flex flex-col w-1/2">
-              <%= f.label :start_hour, '開始時間', class: 'label mb-2' %>
+              <%= f.label :start_hour,  class: 'label mb-2' %>
               <%= f.select :start_hour, (0..23).to_a.map { |h| ["#{h}時", h] }, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
             </div>
 
             <div class="flex flex-col w-1/2">
-              <%= f.label :start_minute, '開始分', class: 'label mb-2' %>
+              <%= f.label :start_minute,  class: 'label mb-2' %>
               <%= f.select :start_minute, [['00分', 0], ["30分",30]], { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
             </div>
 
             <div class="flex flex-col w-1/2">
-              <%= f.label :end_hour, '終了時間', class: 'label mb-2' %>
+              <%= f.label :end_hour,  class: 'label mb-2' %>
               <%= f.select :end_hour, (0..23).to_a.map { |h| ["#{h}時", h] }, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
             </div>
 
             <div class="flex flex-col w-1/2">
-              <%= f.label :end_minute, '終了分', class: 'label mb-2' %>
+              <%= f.label :end_minute,  class: 'label mb-2' %>
               <%= f.select :end_minute, [["00分",0], ["30分",30]], { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
             </div>
           </div>
         </div>
 
         <div class='mb-6 flex flex-col items-center'>
-          <%= f.label :wifi, 'Wi-Fi', class: 'label w-full lg:w-2/3 mb-2' %>
+          <%= f.label :wifi,  class: 'label w-full lg:w-2/3 mb-2' %>
           <%= f.select :wifi, Post.wifis_i18n.invert.to_a, { include_blank: "未選択" },
                     class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full lg:w-2/3' %>
         </div>
 
         <div class='mb-6 flex flex-col items-center'>
-          <%= f.label :electricity, '電源', class: 'label w-full lg:w-2/3 mb-2' %>
+          <%= f.label :electricity,  class: 'label w-full lg:w-2/3 mb-2' %>
           <%= f.select :electricity, Post.electricities_i18n.invert.to_a, { include_blank: "未選択" },
                   class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full lg:w-2/3' %>
         </div>
@@ -81,7 +81,7 @@
             </div>
 
         <div class="mt-8 mb-20 text-center">
-        <%= f.submit '投稿する', class: "bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
+        <%= f.submit t('.submit'), class: "bg-button hover:bg-green-700 text-white rounded px-5 py-3 mr-3" %>
          <p class="text-gray-800 text-sm mt-8 text-center">
           <%= link_to t('.to_register_page'),new_user_path , class: "text-blue-500 hover:underline ml-1" %>
         <p>
