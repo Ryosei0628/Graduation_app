@@ -21,6 +21,14 @@
           <div class="flex ml-2 items-center">
             <i class="fa-solid fa-circle-user"></i>
             <p class="text-left ml-2 w-auto"><%= post.user.username %></p>
+            <% if current_user.own?(board) %>
+            <div class='ms-auto'>
+              <%= link_to edit_board_path(board), id: "button-edit-#{board.id}" do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+              <%= link_to board_path(board), id: "button-delete-#{board.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                <i class="bi bi-trash-fill"></i>
+              <% end %>
           </div>
         </div>
         <div class="flex items-center">
