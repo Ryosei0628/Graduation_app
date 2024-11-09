@@ -1,6 +1,19 @@
 <div class='container rounded-xl shadow-xl p-6 max-w-full md:max-w-3xl mx-auto my-10 border border-white bg-base-100'>
+<div class="flex justify-between items-center">
+<i class="fa-solid fa-circle-user"></i>
+<p class="text-lg font-semibold ml-2 text-center md:text-right"><%= @post.user.username %></p>
+<% if current_user.own?(@post) %>
+  <div class='ms-auto'>
+    <%= link_to edit_post_path(@post) do%>
+    <i class="fa-solid fa-pencil"></i>
+    <% end %>
+  </div>
+<% end %>
+</div>
   <div class='md:w-1/2 mx-auto'>
-    <p class="text-lg font-semibold text-center md:text-right"><%= @post.user.username %></p>
+    <div class="flex ml-2 items-center">
+   
+    </div>
     <div class='mt-6 text-center'>
       <h2 class='text-base mb-2 font-medium'>
         <%= @post.genre_i18n %>
