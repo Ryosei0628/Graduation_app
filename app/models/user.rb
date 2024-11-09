@@ -8,4 +8,8 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: true
 
   has_many :posts, dependent: :destroy
+  
+  def own?(post)
+    posts.include?(post)  # 投稿がユーザーのものかどうかをチェック
+  end
 end

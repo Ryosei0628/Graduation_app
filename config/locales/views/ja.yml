@@ -1,9 +1,8 @@
 ja:
   defaults:
-    flash_message:
-      create: 作成
-      post: 投稿
-      delete_confirm: 削除しますか？
+    create: 作成
+    post: 投稿
+    delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -43,6 +42,8 @@ ja:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
   posts:
+    form:
+      submit: 投稿する
     post:
       address: 住所
       see_in_detail: 詳細を見る→
@@ -50,7 +51,6 @@ ja:
       success: 投稿が完了しました
       failure: 投稿に失敗しました
     new:
-      to_register_page: まだアカウントをお持ちでない方→
       submit: 投稿する
     show:
       go_back_to_list: 一覧に戻る
