@@ -1,0 +1,19 @@
+<%# Link showing page number
+  - available local variables
+    page:          a page object for "this" page
+    url:           url to this page
+    current_page:  a page object for the currently displayed page
+    total_pages:   total number of pages
+    per_page:      number of items to fetch per page
+    remote:        data-remote
+-%>
+<span class="page <%= 'current' if page.current? %>">
+  <% if page.current? %>
+    <span class="flex items-center justify-center px-3 h-8 leading-tight text-white bg-primary border border-primary">
+      <%= page %>
+    </span>
+  <% else %>
+    <%= link_to page, url, class: "flex items-center justify-center px-3 h-8 leading-tight text-primary bg-white border border-primary hover:bg-gray-100 hover:text-gray-700", remote: remote, rel: page.rel %>
+  <% end %>
+</span>
+
