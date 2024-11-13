@@ -1,16 +1,71 @@
 <h2>gmap</h2>
 <div id="map" class="h-[37.5rem] w-full"></div>
+<dialog id="spot_modal">
+  <div class="modal-content">
+    <!-- モーダル内容はここに動的に追加されます -->
+  </div>
+  <button class="close-modal" onclick="document.getElementById('spot_modal').close();">閉じる</button>
+</dialog>
 
+<!-- js部分 -->
 <script>
-let map
+  // ページ読み込み後にマップを初期化
+  window.initMap = function() {
+    let latlng = new google.maps.LatLng(38.60, 139.5);
+    
+    let styles = [
+      {
+        stylers: [
+          { "saturation": 0 },
+          { "lightness": 0 }
+        ]
+      }
+    ];
 
-function initMap(){
-  geocoder = new google.maps.Geocoder()
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5.5,
+      styles: styles,
+      center: latlng
+    });
 
-  map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: 35.681236, lng:139.767125},
-    zoom: 15,
-  });
-}
+    let transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    <% @posts.each do |post| %>
+      (function() {
+        let markerLatLng = { lat: <%= post.latitude %>, lng: <%= post.longitude %> };
+        let marker = new google.maps.Marker({ 
+          position: markerLatLng, 
+          map: map 
+        });
+
+        let modalContent = `
+          <h3 class="text-lg font-semibold text-gray-800 mb-2"><%= j(post.location_name) %></h3>
+          <p class="text-sm text-gray-600">
+            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline">
+              <%= j(post.description) %>
+            </a>
+          </p>
+        `;
+
+        marker.addListener('click', function() {
+          const modal = document.getElementById('spot_modal');
+          const modalContentElement = modal.querySelector('.modal-content');
+
+          if (modalContentElement) {
+            modalContentElement.innerHTML = modalContent;
+            modal.showModal();
+          } else {
+            console.error("モーダルのコンテンツ要素が見つかりません");
+          }
+        });
+      })();
+    <% end %>
+  };
 </script>
+
+
+
+
+
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
