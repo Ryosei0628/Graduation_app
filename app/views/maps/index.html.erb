@@ -1,13 +1,11 @@
 <h2>gmap</h2>
 <div id="map" class="h-[37.5rem] w-full"></div>
-<dialog id="spot_modal">
-  <div class="modal-content">
+<!-- モーダルのHTML -->
+<dialog id="spot_modal" class="rounded-lg p-6 shadow-lg w-3/5 h-2/5 mx-auto">
+  <div class="modal-content text-center">
     <!-- モーダル内容はここに動的に追加されます -->
   </div>
-  <button class="close-modal" onclick="document.getElementById('spot_modal').close();">閉じる</button>
 </dialog>
-
-<!-- js部分 -->
 <script>
   // ページ読み込み後にマップを初期化
   window.initMap = function() {
@@ -40,12 +38,12 @@
         });
 
         let modalContent = `
-          <h3 class="text-lg font-semibold text-gray-800 mb-2"><%= j(post.location_name) %></h3>
-          <p class="text-sm text-gray-600">
-            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline">
+          <div class="modal-content-container">
+            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline text-2xl"><%= j(post.location_name) %></a>
+            <p class="text-sm text-gray-600 mt-3">
               <%= j(post.description) %>
-            </a>
-          </p>
+            </p>
+          </div>
         `;
 
         marker.addListener('click', function() {
@@ -54,7 +52,13 @@
 
           if (modalContentElement) {
             modalContentElement.innerHTML = modalContent;
-            modal.showModal();
+
+            // モーダルを表示
+            if (modal.showModal) {
+              modal.showModal();  // <dialog> タグを使っている場合
+            } else {
+             modal.style.display = 'block';  // <div> タグを使っている場合
+            }
           } else {
             console.error("モーダルのコンテンツ要素が見つかりません");
           }
@@ -62,10 +66,14 @@
       })();
     <% end %>
   };
+
+  document.addEventListener('click', function(event) {
+        // モーダル内容をclass="spot_show"の要素に追加
+        const modal = document.getElementById('spot_modal');
+        if (event.target === modal) {
+        modal.close();
+        }
+    });
 </script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap"></script>
 
-
-
-
-
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap" async defer></script>
