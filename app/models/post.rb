@@ -1,4 +1,8 @@
+require 'geocoder'
+
 class Post < ApplicationRecord
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
   validates :location_name, presence: true, length: { maximum: 255 }
   validates :address, presence: true
   validates :start_hour, :end_hour, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 0, less_than: 24 }
