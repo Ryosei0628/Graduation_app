@@ -1,79 +1,48 @@
-<h2>gmap</h2>
 <div id="map" class="h-[37.5rem] w-full"></div>
-<!-- モーダルのHTML -->
-<dialog id="spot_modal" class="rounded-lg p-6 shadow-lg w-3/5 h-2/5 mx-auto">
-  <div class="modal-content text-center">
-    <!-- モーダル内容はここに動的に追加されます -->
-  </div>
-</dialog>
 <script>
-  // ページ読み込み後にマップを初期化
-  window.initMap = function() {
-    let latlng = new google.maps.LatLng(38.60, 139.5);
-    
-    let styles = [
-      {
-        stylers: [
-          { "saturation": 0 },
-          { "lightness": 0 }
-        ]
-      }
-    ];
+    function initMap() {
 
-    let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 5.5,
-      styles: styles,
-      center: latlng
-    });
+      //初期表示位置
+      let latlng = new google.maps.LatLng(38.60, 139.5);
+      //デザイン
+      let styles = [
+           {
+            stylers: [
+             { "saturation": 0 },
+             { "lightness": 0 }
+            ]
+           }
+          ];
 
-    let transitLayer = new google.maps.TransitLayer();
-    transitLayer.setMap(map);
+      let map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 5.5,
+          styles: styles,
+          center: latlng
+      });
+      let transitLayer = new google.maps.TransitLayer();
+      transitLayer.setMap(map);
 
-    <% @posts.each do |post| %>
-      (function() {
-        let markerLatLng = { lat: <%= post.latitude %>, lng: <%= post.longitude %> };
-        let marker = new google.maps.Marker({ 
-          position: markerLatLng, 
-          map: map 
-        });
+//複数マーカー ここから
+      <% @posts.each do |post|%>
+        ( function() { 
+          let markerLatLng = { lat: <%= post.latitude %>, lng: <%= post.longitude %> }; // 緯度経度のデータ作成
+          let marker = new google.maps.Marker({ 
+            position: markerLatLng, 
+            map: map 
+          });
+//マーカーをクリックしたとき、詳細情報を表示
+          let infowindow = new google.maps.InfoWindow({
+            position: markerLatLng,
+            content: "<a href='<%= post_url(post.id) %>' target='_blank'><%= post.description %></a>"
+          }); //ここで詳細ページへのリンクを表示させる
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
 
-        let modalContent = `
-          <div class="modal-content-container">
-            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline text-2xl"><%= j(post.location_name) %></a>
-            <p class="text-sm text-gray-600 mt-3">
-              <%= j(post.description) %>
-            </p>
-          </div>
-        `;
-
-        marker.addListener('click', function() {
-          const modal = document.getElementById('spot_modal');
-          const modalContentElement = modal.querySelector('.modal-content');
-
-          if (modalContentElement) {
-            modalContentElement.innerHTML = modalContent;
-
-            // モーダルを表示
-            if (modal.showModal) {
-              modal.showModal();  // <dialog> タグを使っている場合
-            } else {
-             modal.style.display = 'block';  // <div> タグを使っている場合
-            }
-          } else {
-            console.error("モーダルのコンテンツ要素が見つかりません");
-          }
-        });
-      })();
-    <% end %>
-  };
-
-  document.addEventListener('click', function(event) {
-        // モーダル内容をclass="spot_show"の要素に追加
-        const modal = document.getElementById('spot_modal');
-        if (event.target === modal) {
-        modal.close();
-        }
-    });
+       })();
+      <% end %>
+      //複数マーカー ここまで  
+  }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap"></script>
 
