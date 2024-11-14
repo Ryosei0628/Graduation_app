@@ -1,25 +1,78 @@
-<div id="map" class=" w-full" style="height: 600px;"></div>
+<div id="map" class="h-[37.5rem] w-full"></div>
+<!-- モーダルのHTML -->
+<dialog id="spot_modal" class="rounded-lg p-6 shadow-lg w-3/5 h-2/5 mx-auto">
+  <div class="modal-content text-center">
+    <!-- モーダル内容はここに動的に追加されます -->
+  </div>
+</dialog>
 <script>
-  function initMap() {
-    // 地図要素を取得する（マーカーを表示させるために必要）
-    const mapElement = document.getElementById('map');
+  // ページ読み込み後にマップを初期化
+  window.initMap = function() {
+    let latlng = new google.maps.LatLng(38.60, 139.5);
+    
+    let styles = [
+      {
+        stylers: [
+          { "saturation": 0 },
+          { "lightness": 0 }
+        ]
+      }
+    ];
 
-    const mapOptions = {
-      center: { lat: 35.6803997, lng: 139.7690174 },
-      zoom: 10
-    };
+    let map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 5.5,
+      styles: styles,
+      center: latlng
+    });
 
-    const map = new google.maps.Map(mapElement, mapOptions);
+    let transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
 
-    // マーカーを追加（Postの情報からマーカーを追加する）
     <% @posts.each do |post| %>
-      new google.maps.Marker({
-        position: { lat: <%= post.latitude || 35.6803997 %>, lng: <%= post.longitude || 139.7690174 %> }, 
-        map: map,
-        title: '<%= post.location_name.gsub("'", "\\'") %>'
-      });
+      (function() {
+        let markerLatLng = { lat: <%= post.latitude %>, lng: <%= post.longitude %> };
+        let marker = new google.maps.Marker({ 
+          position: markerLatLng, 
+          map: map 
+        });
+
+        let modalContent = `
+          <div class="modal-content-container">
+            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline text-2xl"><%= j(post.location_name) %></a>
+            <p class="text-sm text-gray-600 mt-3">
+              <%= j(post.description) %>
+            </p>
+          </div>
+        `;
+
+        marker.addListener('click', function() {
+          const modal = document.getElementById('spot_modal');
+          const modalContentElement = modal.querySelector('.modal-content');
+
+          if (modalContentElement) {
+            modalContentElement.innerHTML = modalContent;
+
+            // モーダルを表示
+            if (modal.showModal) {
+              modal.showModal();  // <dialog> タグを使っている場合
+            } else {
+             modal.style.display = 'block';  // <div> タグを使っている場合
+            }
+          } else {
+            console.error("モーダルのコンテンツ要素が見つかりません");
+          }
+        });
+      })();
     <% end %>
-  }
+  };
+
+  document.addEventListener('click', function(event) {
+        // モーダル内容をclass="spot_show"の要素に追加
+        const modal = document.getElementById('spot_modal');
+        if (event.target === modal) {
+        modal.close();
+        }
+    });
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap"></script>
 
