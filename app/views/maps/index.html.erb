@@ -1,14 +1,14 @@
 <div id="map" class="h-[37.5rem] w-full"></div>
 <!-- モーダルのHTML -->
-<dialog id="spot_modal" class="rounded-lg p-6 shadow-lg w-3/5 h-2/5 mx-auto">
-  <div class="modal-content text-center">
+<dialog id="spot_modal" class="rounded-2xl shadow-2xl w-full sm:max-w-md md:max-w-2xl lg:max-w-xl xl:max-w2xl max-h-[80%] sm:max-h-[40%] md:max-h-[50%] lg:max-h-[60%] mx-auto items-center">
+  <div class="modal-content flex justify-center items-center">
     <!-- モーダル内容はここに動的に追加されます -->
   </div>
 </dialog>
 <script>
   // ページ読み込み後にマップを初期化
   window.initMap = function() {
-    let latlng = new google.maps.LatLng(38.60, 139.5);
+    let latlng = new google.maps.LatLng(35.6762, 139.6503);
     
     let styles = [
       {
@@ -20,7 +20,7 @@
     ];
 
     let map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 5.5,
+      zoom: 12,
       styles: styles,
       center: latlng
     });
@@ -37,11 +37,22 @@
         });
 
         let modalContent = `
-          <div class="modal-content-container">
-            <a href="<%= post_url(post.id) %>" target="_blank" class="text-blue-500 underline text-2xl"><%= j(post.location_name) %></a>
-            <p class="text-sm text-gray-600 mt-3">
-              <%= j(post.description) %>
-            </p>
+          <div class="modal-content-container p-6 text-center">
+           <h2 class="font-bold text-xl"><%= j(post.location_name) %></h2>
+           <p class="text-sm text-gray-700 mt-1 leading-relaxed">
+             <%= j(post.genre_i18n) %>
+           </p>
+           <p class="text-sm text-gray-600 mt-4">
+             <strong><i class="fa-solid fa-thumbtack"></i></strong> <%= j(post.address) %>
+           </p>
+           <p class="mt-6"><%= j(post.description) %></p>
+
+         <!-- 詳細ページボタン -->
+           <div class="mt-6 text-center">
+             <a href="<%= post_url(post.id) %>" class="inline-block bg-blue-500 text-white py-2 px-6 rounded-lg hover:bg-blue-600 transition duration-300">
+              <%= t('.to_detail_page')%>
+             </a>
+           </div>
           </div>
         `;
 
@@ -58,6 +69,7 @@
             } else {
              modal.style.display = 'block';  // <div> タグを使っている場合
             }
+             document.body.style.overflow = 'hidden'; 
           } else {
             console.error("モーダルのコンテンツ要素が見つかりません");
           }
@@ -66,13 +78,20 @@
     <% end %>
   };
 
+  //モーダルを閉じる処理
   document.addEventListener('click', function(event) {
         // モーダル内容をclass="spot_show"の要素に追加
         const modal = document.getElementById('spot_modal');
+
         if (event.target === modal) {
         modal.close();
+
+         document.body.style.overflow = 'auto';  // スクロールを有効化
         }
-    });
+  });
+  document.querySelector('#spot_modal .modal-content').addEventListener('click', function(event) {
+    event.stopPropagation();  // イベントの伝播を止めて、モーダル内クリックでは閉じないようにする
+  });
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap"></script>
 

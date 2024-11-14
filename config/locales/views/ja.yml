@@ -41,6 +41,9 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  maps:
+    index:
+      to_detail_page: 詳細ページ
   posts:
     form:
       submit: 投稿する
