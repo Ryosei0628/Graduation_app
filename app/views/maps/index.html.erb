@@ -1,4 +1,4 @@
-<div id="map" class="h-[37.5rem] w-full"></div>
+<div id="map" class=" w-full" style="height: 600px;"></div>
 <script>
   function initMap() {
     // 地図要素を取得する（マーカーを表示させるために必要）
@@ -14,9 +14,9 @@
     // マーカーを追加（Postの情報からマーカーを追加する）
     <% @posts.each do |post| %>
       new google.maps.Marker({
-        position: {lat: <%= post.latitude %>, lng: <%= post.longitude %>}, 
+        position: { lat: <%= post.latitude || 35.6803997 %>, lng: <%= post.longitude || 139.7690174 %> }, 
         map: map,
-        title: '<%= j post.location_name %>'
+        title: '<%= post.location_name.gsub("'", "\\'") %>'
       });
     <% end %>
   }
