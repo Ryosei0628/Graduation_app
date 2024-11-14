@@ -1,47 +1,24 @@
 <div id="map" class="h-[37.5rem] w-full"></div>
 <script>
-    function initMap() {
+  function initMap() {
+    // 地図要素を取得する（マーカーを表示させるために必要）
+    const mapElement = document.getElementById('map');
 
-      //初期表示位置
-      let latlng = new google.maps.LatLng(38.60, 139.5);
-      //デザイン
-      let styles = [
-           {
-            stylers: [
-             { "saturation": 0 },
-             { "lightness": 0 }
-            ]
-           }
-          ];
+    const mapOptions = {
+      center: { lat: 35.6803997, lng: 139.7690174 },
+      zoom: 10
+    };
 
-      let map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 5.5,
-          styles: styles,
-          center: latlng
+    const map = new google.maps.Map(mapElement, mapOptions);
+
+    // マーカーを追加（Postの情報からマーカーを追加する）
+    <% @posts.each do |post| %>
+      new google.maps.Marker({
+        position: {lat: <%= post.latitude %>, lng: <%= post.longitude %>}, 
+        map: map,
+        title: '<%= j post.location_name %>'
       });
-      let transitLayer = new google.maps.TransitLayer();
-      transitLayer.setMap(map);
-
-//複数マーカー ここから
-      <% @posts.each do |post|%>
-        ( function() { 
-          let markerLatLng = { lat: <%= post.latitude %>, lng: <%= post.longitude %> }; // 緯度経度のデータ作成
-          let marker = new google.maps.Marker({ 
-            position: markerLatLng, 
-            map: map 
-          });
-//マーカーをクリックしたとき、詳細情報を表示
-          let infowindow = new google.maps.InfoWindow({
-            position: markerLatLng,
-            content: "<a href='<%= post_url(post.id) %>' target='_blank'><%= post.description %></a>"
-          }); //ここで詳細ページへのリンクを表示させる
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
-
-       })();
-      <% end %>
-      //複数マーカー ここまで  
+    <% end %>
   }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&libraries=places&callback=initMap"></script>
