@@ -10,7 +10,7 @@
   
           <!-- ジャンル選択 -->
           <div class="relative w-32">
-            <%= f.select :genre_eq, Post.genres_i18n.invert.to_a, { include_blank: t('posts.search_form.select_form.genre'), selected: params.dig(:q, :genre) }, class: 'border border-primary text-xs w-full h-10 rounded' %>
+            <%= f.select :genre_eq, Post.genres.map { |k, value| [t("enums.post.genre.#{k}"), value] }, { include_blank: t('posts.search_form.select_form.genre'), selected: params.dig(:q, :genre_eq) }, class: 'border border-primary text-xs w-full h-10 rounded' %>
           </div>
   
           <!-- 検索ボタン -->
