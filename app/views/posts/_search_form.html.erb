@@ -1,0 +1,28 @@
+<%= search_form_for @q do |f| %>
+    <div class="my-3 mx-8">
+      <div class="mx-auto flex justify-center w-full max-w-md md:max-w-2xl">
+        <div class="flex space-x-2 w-full">
+          
+          <!-- 検索フィールドの高さを増やす -->
+          <div class="flex-grow w-full relative">
+            <%= f.search_field :location_name_or_address_cont, class: 'input input-bordered text-xs w-full px-4 border border-primary focus:border-blue-500 h-10 rounded' ,placeholder: t('posts.search_form.placeholder.for_spot')%> 
+          </div>
+  
+          <!-- ジャンル選択 -->
+          <div class="relative w-32">
+            <%= f.select :genre_eq, Post.genres_i18n.invert.to_a, { include_blank: t('posts.search_form.select_form.genre'), selected: params.dig(:q, :genre) }, class: 'border border-primary text-xs w-full h-10 rounded' %>
+          </div>
+  
+          <!-- 検索ボタン -->
+          <div class="flex items-center">
+            <%= button_tag(type: 'submit', class: 'btn text-xs') do %>
+              <%= image_tag 'search_mark.svg', class: "h-4 w-4" %>
+            <% end %>
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  <% end %>
+  
+  

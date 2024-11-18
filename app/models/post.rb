@@ -24,6 +24,13 @@ class Post < ApplicationRecord
     "#{start_hour}時#{format('%02d', start_minute)}分 - #{end_hour}時#{format('%02d', end_minute)}分"
   end
 
+  def self.ransackable_attributes(auth_object = nil)
+    super + ["location_name", "address","genre"] # 検索可能な属性名を指定  # genreカラムを追加して検索対象にする
+  end
+
+  def self.ransackable_associations(auth_object = nil)
+    [] # アソシエーションを検索対象にしない
+  end
 
   belongs_to :user
   mount_uploader :post_image, PostImageUploader
