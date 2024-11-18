@@ -38,7 +38,7 @@ gem "bootsnap", require: false
 
 gem 'sorcery', github: 'sorcery/sorcery'
 
-gem 'rails-i18n', '~> 7.0.0'
+gem 'rails-i18n', '~> 7.0.10'
 
 gem 'enum_help'
 
