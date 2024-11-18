@@ -1,5 +1,18 @@
-<div class='py-0 px-5 my-0 mx-auto max-w-screen-xl h-full text-center mt-10'>  
-    <h1 class="text-2xl">みんなのおすすめスポット</h1>
+<div class="w-5/6 mx-auto max-w-md">
+    <div class="mt-4">
+        <div class="text-center text-sm font-bold">
+          <h1 class="text-xl text-center mt-t">みんなのおすすめスポット</h1>
+        </div>
+    </div>
+</div>
+
+<div class="mt-4">
+    <form>
+        <%= render 'search_form'%>
+    </form>
+</div>
+
+<div class='py-0 px-5 my-0 mx-auto max-w-screen-xl h-full text-center mt-10'>    
     <% if @posts.present? %>
     <div class="mb-10 md:grid md:grid-cols-2 md:gap-4">
       <%= render @posts %>

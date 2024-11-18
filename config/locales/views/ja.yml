@@ -50,6 +50,11 @@ ja:
     post:
       address: 住所
       see_in_detail: 詳細を見る→
+    search_form:
+      placeholder:
+        for_spot: 場所/住所を入力
+      select_form:
+        genre: ジャンル
     create:
       success: 投稿が完了しました
       failure: 投稿に失敗しました

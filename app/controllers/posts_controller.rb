@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
     skip_before_action :require_login, only: %i[index]
   def index
-    @posts = Post.includes(:user)
-    @posts = Post.all.page(params[:page])
+    @q = Post.ransack(params[:q])
+    @posts = @q.result.includes(:user).page(params[:page])
   end
   
   def new
