@@ -25,10 +25,6 @@
  
    <%= yield %>
  
-   <% if logged_in? %>
-     <%= render 'shared/btmnav'%>
-   <% else %>
-     <%= render 'shared/before_login_btmnav'%>
-   <% end %>
+   <%= render 'shared/btmnav'%>
  </body>
 </html>
