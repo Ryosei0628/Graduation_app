@@ -1,38 +1,46 @@
-<nav id="buttom-navbar" class="fixed z-50 w-full h-16 max-w-lg -translate-x-1/2 bg-primary border-lg border-gray-200 rounded-lg bottom-4 left-1/2">
-  <ul class="flex justify-center items-center">
-    <li class="md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
-      <%= link_to maps_path do %>
-      <button class="group inline-block text-center m-2">
-      <i class="fa-solid fa-map-location"></i>
-        <p class="icon-text font-Spicyrice"><%= t('btmnav.map') %></p>
-      </button>
+<section id="bottom-navigation" class="block fixed inset-x-0 bottom-0 z-10 bg-primary shadow font-Spicyrice">
+  <div id="tabs" class="flex justify-between">
+    <!-- map -->
+    <%= link_to maps_path, class: "w-full justify-center inline-block text-center pt-2 pb-1 group" do %>
+       <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 group-hover:fill-teal-500">
+        <path fill="none" stroke="black"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 8c0 4.42 7 12 7 12s7-7.58 7-12c0-2.87-3.13-6-7-6zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" class="group-hover:stroke-teal-500" />
+      </svg>
+      <span class="tab tab-map block text-xs font-semibold group-hover:text-teal-500">Map</span>
     <% end %>
-    </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
-      <%= link_to posts_path do %>
-        <button class="group inline-block text-center m-2">
-          <i class="fa-solid fa-list fa-xl"></i>
-          <p class="icon-text font-Spicyrice"><%= t('btmnav.list') %></p>
-        </button>
-      <% end %>
-    </li>
-    <li class="mx-2 md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-full">
-      <%= link_to new_post_path do %>
-        <button class="group inline-block text-center m-2">
-          <i class="custom-icon fa-solid fa-plus fa-xl "></i>
-          <p class="icon-text font-Spicyrice "><%= t('btmnav.post') %></p>
-        </button>
-      <% end %>
-    </li>
-    <li class=" md:flex-grow-0 md:w-1/4 text-center hover:bg-white hover:rounded-lg hover:rounded-full">
-      <%= link_to logout_path, data: { turbo_method: :delete, confirm: '本当にログアウトしますか？' } do %>
-        <button class="group inline-block text-center m-2">
-          <i class="fa-solid fa-right-from-bracket fa-xl"></i>
-          <p class="icon-text font-Spicyrice"><%= t('btmnav.logout') %></p>
-        </button>
-      <% end %>
-    </li>
-  </ul>
-</nav>
+
+    <!-- List -->
+    <%= link_to posts_path, class: "w-full justify-center inline-block text-center pt-2 pb-1 group" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 group-hover:fill-teal-500">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" class="group-hover:stroke-teal-500" />
+      </svg>
+      <span class="tab tab-list block text-xs font-semibold group-hover:text-teal-500">List</span>
+    <% end %>
+
+    <!-- Post -->
+    <%= link_to new_post_path, class: "w-full justify-center inline-block text-center pt-2 pb-1 group" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 group-hover:fill-teal-500">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 11h8v2h-8v8h-2v-8H3v-2h8V3h2z" class="group-hover:stroke-teal-500" />
+      </svg>
+      <span class="tab tab-post block text-xs font-semibold group-hover:text-teal-500">Post</span>
+    <% end %>
+
+    <!-- Bookmark -->
+    <%= link_to root_path, class: "w-full justify-center inline-block text-center pt-2 pb-1 group" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 group-hover:fill-teal-500">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17 3H7a2 2 0 0 0-2 2v16l7-3l7 3V5a2 2 0 0 0-2-2z" class="group-hover:stroke-teal-500" />
+      </svg>
+      <span class="tab tab-bookmark block text-xs font-semibold group-hover:text-teal-500">Bookmark</span>
+    <% end %>
+
+    <!-- My Page -->
+    <%= link_to root_path, class: "w-full justify-center inline-block text-center pt-2 pb-1 group" do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 group-hover:fill-teal-500">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 12a5 5 0 1 0-5-5a5 5 0 0 0 5 5zm0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5z" class="group-hover:stroke-teal-500" />
+      </svg>
+      <span class="tab tab-mypage block text-xs font-semibold group-hover:text-teal-500">My Page</span>
+    <% end %>
+
+  </div>
+</section>
   
 
