@@ -66,10 +66,13 @@ ja:
     title: Zen Focus
     login: ログイン
     logout: ログアウト
+    my_page: マイページ
     signup: ユーザー登録
     description: このアプリについて
     list: 一覧を見る
     post: 投稿する
+    maps: マップから探す
+    bookmark: ブックマークしたスポット
   btmnav:
     map: Map
     home: Home
