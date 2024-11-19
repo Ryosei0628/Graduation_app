@@ -9,8 +9,8 @@
     </button>
     </div>
     
-    <!-- モバイル用メニュー -->
-    <ul id="menu" class="z-30 fixed top-0 left-0 w-full h-full text-center bg-menu font-bold translate-x-full transition duration-500 ease-linear flex flex-col items-start">
+    <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden z-20"></div>
+    <ul id="menu" class="z-30 fixed top-0 right-[-20rem] w-80 h-full text-center bg-menu font-bold transition-all duration-500 east-in-out flex flex-col items-start">
     <li class="pt-24 p-3"><%= link_to t('header.post'), class: 'text-lg hover:text-white' %></li>
     <li class="p-3"><%= link_to t('header.list'), posts_path,class: 'text-lg hover:text-white' %></li>
     <li class="p-3"><%= link_to t('header.logout'),logout_path, data:{turbo_method: :delete},class: 'text-lg hover:text-white' %></li>
