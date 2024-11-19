@@ -3,16 +3,60 @@
     <!-- ハンバーガーメニュー -->
     <div class="flex items-center">
     <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete } , class: 'font-Kaisei text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-12'%>
-    <button id="button" type="button" class=" z-40 top-6 right-6"> <!-- md未満で表示 -->
+    <button id="button" type="button" class=" z-15 top-6 right-6"> <!-- md未満で表示 -->
       <i id="bars" class="fa-solid fa-bars fa-2x"></i>
-      <i id="x" class="fa-solid fa-x fa-2x hidden"></i>
     </button>
     </div>
     
     <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden z-20"></div>
-    <ul id="menu" class="z-30 fixed top-0 right-[-20rem] w-80 h-full text-center bg-menu font-bold transition-all duration-500 east-in-out flex flex-col items-start">
-    <li class="pt-24 p-3"><%= link_to t('header.post'), class: 'text-lg hover:text-white' %></li>
-    <li class="p-3"><%= link_to t('header.list'), posts_path,class: 'text-lg hover:text-white' %></li>
-    <li class="p-3"><%= link_to t('header.logout'),logout_path, data:{turbo_method: :delete},class: 'text-lg hover:text-white' %></li>
+    <ul id="menu" class="z-30 fixed top-0 right-[-20rem] w-80 h-full text-center bg-menu font-bold transition-all duration-500 east-in-out flex flex-col items-start p-4">
+    <li class='px-4 py-2 w-full text-left'>
+      <%= link_to root_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1  mr-3">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 12a5 5 0 1 0-5-5a5 5 0 0 0 5 5zm0 2c-4.33 0-8 2.17-8 5v1h16v-1c0-2.83-3.67-5-8-5z" class="group-hover:stroke-teal-500" />
+        </svg>
+        <%= t('header.my_page') %>
+      <% end %>
+      </li>
+      <li class='px-4 py-2 pb-5 w-full text-left border-b border-black'>
+        <%= link_to logout_path, data: { turbo_method: :delete } do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mb-1 mr-3"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+            <%= t('header.logout') %>
+          <% end %>
+      </li>
+    <li class='pt-7 px-4 py-2 w-full text-left' %>
+       <%= link_to maps_path do %>
+      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
+        <path fill="none" stroke="black"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 8c0 4.42 7 12 7 12s7-7.58 7-12c0-2.87-3.13-6-7-6zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" class="inline-block mb-1 mr-3" />
+      </svg>
+      <%= t('header.maps') %>
+      <% end %>
+    </li>
+    <li class='px-4 py-2 w-full text-left' %>
+      <%= link_to posts_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
+        </svg>
+      <%= t('header.list') %>
+      <% end %>
+    </li>
+    <li class='px-4 py-2 w-full text-left' %>
+      <%= link_to new_post_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 11h8v2h-8v8h-2v-8H3v-2h8V3h2z" />
+        </svg>
+      <%= t('header.post') %>
+      <% end %>
+    </li>
+    <li class='px-4 py-2 w-full text-left' %>
+      <%= link_to root_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
+        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17 3H7a2 2 0 0 0-2 2v16l7-3l7 3V5a2 2 0 0 0-2-2z" class="group-hover:stroke-teal-500" />
+        </svg>
+      <%= t('header.bookmark') %>
+      <% end %>
+    </li>
+
+
     </ul>
 </header>
