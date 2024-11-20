@@ -26,39 +26,8 @@
       </li>
       <li class='px-4 py-2  w-full text-left border-b border-black '>
       <li>
-    <li class='mt-7 px-4 py-2 w-full text-left hover:bg-gray-500 hover:text-secondary hover:rounded-lg'>
-       <%= link_to maps_path do %>
-      <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
-        <path fill="none" stroke="black"  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 8c0 4.42 7 12 7 12s7-7.58 7-12c0-2.87-3.13-6-7-6zm0 10c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z" class="inline-block mb-1 mr-3" />
-      </svg>
-      <%= t('header.maps') %>
-      <% end %>
-    </li>
-    <li class='px-4 py-2  w-full text-left hover:bg-gray-500 hover:text-secondary hover:rounded-lg'>
-      <%= link_to posts_path do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
-        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z" />
-        </svg>
-      <%= t('header.list') %>
-      <% end %>
-    </li>
-    <li class='px-4 py-2 w-full text-left hover:bg-gray-500 hover:text-secondary hover:rounded-lg'>
-      <%= link_to new_post_path do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
-        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M13 11h8v2h-8v8h-2v-8H3v-2h8V3h2z" />
-        </svg>
-      <%= t('header.post') %>
-      <% end %>
-    </li>
-    <li class='px-4 py-2 w-full text-left hover:bg-gray-500 hover:text-secondary hover:rounded-lg'>
-      <%= link_to root_path do %>
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" class="inline-block mb-1 mr-3">
-        <path fill="none" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M17 3H7a2 2 0 0 0-2 2v16l7-3l7 3V5a2 2 0 0 0-2-2z" class="group-hover:stroke-teal-500" />
-        </svg>
-      <%= t('header.bookmark') %>
-      <% end %>
-    </li>
-
-
+      
+      <%= render 'shared/header_list' %>
+      
     </ul>
 </header>
