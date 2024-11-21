@@ -1,18 +1,31 @@
-<header class="flex justify-between items-center left-0 h-20 p-6  w-full bg-primary z-10">
-    <a class="text-2xl font-Spicyrice z-20"><%= t('header.title') %></a>
-  <!-- ハンバーガーメニュー -->
-   <div class="flex items-center">
-    <%= link_to 'ログイン', login_path, class: 'font-Kaisei text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-12' %>
-    <button id="button" type="button" class="z-10 top-6 right-6"> <!-- md未満で表示 -->
+<header class="flex justify-between items-center left-0 h-20 p-6 w-full bg-primary z-10">
+    <a class="text-2xl font-Spicyrice z-15"><%= t('header.title') %></a>
+    <!-- ハンバーガーメニュー -->
+    <div class="flex items-center">
+    <%= link_to t('header.logout'), logout_path, data: { turbo_method: :delete } , class: 'font-Kaisei text-white bg-blue-700 hover:bg-blue-400 hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 mr-12'%>
+    <button id="button" type="button" class=" z-15 top-6 right-6"> <!-- md未満で表示 -->
       <i id="bars" class="fa-solid fa-bars fa-2x"></i>
-      <i id="x" class="fa-solid fa-x fa-2x hidden"></i>
     </button>
-  </div>
+    </div>
     
-    <!-- モバイル用メニュー -->
-    <ul id="menu" class="z-15 fixed top-0 left-0 w-full h-full text-center bg-menu font-bold translate-x-full transition duration-500 ease-linear flex flex-col items-start">
-        <li class="pt-24 p-3"><%= link_to t('header.description'), root_path, class: 'text-lg hover:text-white' %></li>
-        <li class="p-3"><%= link_to t('header.signup'), new_user_path, class: 'text-lg hover:text-white' %></li>
-        <li class="p-3"><%= link_to t('header.list'), posts_path, class: 'text-lg hover:text-white' %></li>
+    <div id="overlay" class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 hidden z-20"></div>
+    <ul id="menu" class="z-30 fixed top-0 right-[-20rem] w-80 h-full text-center bg-menu font-bold transition-all duration-500 east-in-out flex flex-col items-start p-4">
+    <li class='px-4 py-2 w-full text-left hover:bg-gray-500 hover:text-secondary hover:rounded-lg'>
+      <%= link_to new_user_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mb-1 mr-3"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+        <%= t('header.signup') %>
+      <% end %>
+      </li>
+      <li class='px-4 py-2  w-full text-left  hover:bg-gray-500 hover:text-secondary hover:rounded-lg '>
+        <%= link_to login_path do %>
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block mb-1  mr-3"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+            <%= t('header.login') %>
+          <% end %>
+      </li>
+      <li class='px-4 py-2  w-full text-left border-b border-black '>
+      <li>
+      
+      <%= render 'shared/header_list' %>
+      
     </ul>
 </header>
