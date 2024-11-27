@@ -10,10 +10,10 @@
       <span class="inline-block items-center gap-x-1.5 py-0.5 px-1 mt-2 rounded-full text-xs font-medium border border-gray-800 text-gray-800">
         <%= I18n.t("activerecord.attributes.post.genre.#{post.genre}") %>
       </span>
-      <p class="md:text-lg text-base w-full mt-2" style="white-space: nowrap; word-wrap: break-word;" title="<%= post.address %>">
-        <%= t('.address') %> <%= post.address %>
+      <p class="md:text-lg text-base w-full mt-2" title="<%= post.address %>">
+        <%= t('.address') %><%= post.address %>
       </p>
-      <p class="md:text-lg text-base w-full mt-2" style="white-space: nowrap; word-wrap: break-word;" title="<%= post.address %>">
+      <p class="md:text-lg text-base w-full mt-2 break-word;" title="<%= post.description %>">
          <%= post.description.truncate(50) %>
       </p>
       <div class="flex items-center mt-2">
