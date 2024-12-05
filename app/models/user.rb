@@ -15,15 +15,15 @@ class User < ApplicationRecord
     posts.include?(post)  # 投稿がユーザーのものかどうかをチェック
   end
 
-  def bookmark(board)
-    bookmark_boards << board
+  def bookmark(post)
+    bookmark_posts << post
   end
   
-  def unbookmark(board)
-    bookmark_boards.destroy(board)
+  def unbookmark(post)
+    bookmark_posts.destroy(post)
   end
   
-  def bookmark?(board)
-    bookmark_boards.include?(board)
+  def bookmark?(post)
+    bookmark_posts.include?(post)
   end
 end

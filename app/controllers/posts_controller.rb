@@ -44,8 +44,8 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    @q = Post.ransack(params[:q])
-    @posts = @q.result.includes(:user).page(params[:page])  # 検索結果の取得
+    @q = current_user.bookmark_posts.ransack(params[:q])
+    @bookmark_posts = @q.result.page(params[:page])  # 検索結果の取得
   end
 
   private
