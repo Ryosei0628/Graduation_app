@@ -12,7 +12,12 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "static_pages#top"
   resources :users, only: %i[new create]
-  resources :posts, only: %i[index new create show edit update destroy]
+  resources :posts, only: %i[index new create show edit update destroy] do
+    collection do
+      get :bookmarks
+    end
+  end
+  resources :bookmarks, only: %i[create destroy]
   resources :maps, only: %i[index]
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
