@@ -406,7 +406,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  brakeman (~> 6.2.2)
+  brakeman
   capybara
   carrierwave (= 2.2.2)
   cssbundling-rails
