@@ -36,29 +36,29 @@ gem "bootsnap", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem 'sorcery', github: 'sorcery/sorcery'
+gem "sorcery", github: "sorcery/sorcery"
 
-gem 'rails-i18n', '~> 7.0.0'
+gem "rails-i18n", "~> 7.0.0"
 
-gem 'enum_help'
+gem "enum_help"
 
-gem 'fog-aws'
+gem "fog-aws"
 
-gem 'dotenv-rails'
+gem "dotenv-rails"
 
-gem 'carrierwave', '2.2.2'
+gem "carrierwave", "2.2.2"
 
-gem 'kaminari'
+gem "kaminari"
 
 gem "geocoder"
 
-gem 'ransack'
+gem "ransack"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
   # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
-  gem 'brakeman'
+  gem "brakeman", "~> 6.2.2"
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase"
