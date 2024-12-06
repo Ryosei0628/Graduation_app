@@ -1,8 +1,6 @@
 class PostsController < ApplicationController
     skip_before_action :require_login, only: %i[index show]
   def index
-    page = params[:page].to_i > 0 ? params[:page].to_i : 1
-    q = params[:q].to_s.strip
     @q = Post.ransack(params[:q])
     @posts = @q.result.includes(:user).page(params[:page])
   end
@@ -46,8 +44,6 @@ class PostsController < ApplicationController
   end
 
   def bookmarks
-    page = params[:page].to_i > 0 ? params[:page].to_i : 1
-    q = params[:q].to_s.strip
     @q = current_user.bookmark_posts.ransack(params[:q])
     @bookmark_posts = @q.result.page(params[:page])  # 検索結果の取得
   end
