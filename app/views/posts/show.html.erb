@@ -71,7 +71,7 @@
           <td class="border px-2 py-2">サイトURL</td>
           <td class="border px-2 py-2">
             <% if @post.site_url.present? %>
-              <%= link_to @post.site_url, @post.site_url, target: '_blank',class: 'text-blue-500 underline break-words' %>
+              <%= link_to h(Post.find(params[:id]).site_url), Post.find(params[:id]).site_url, target: "_blank", class: "text-blue-500 underline break-words" %>
             <% else %>
               <p>情報がありません</p>
             <% end %>

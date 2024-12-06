@@ -10,7 +10,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_posts, through: :bookmarks, source: :post
-  
+
   def own?(post)
     posts.include?(post)  # 投稿がユーザーのものかどうかをチェック
   end
@@ -18,11 +18,11 @@ class User < ApplicationRecord
   def bookmark(post)
     bookmark_posts << post
   end
-  
+
   def unbookmark(post)
     bookmark_posts.destroy(post)
   end
-  
+
   def bookmark?(post)
     bookmark_posts.include?(post)
   end
