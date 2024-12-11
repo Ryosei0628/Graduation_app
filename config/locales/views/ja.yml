@@ -62,6 +62,10 @@ ja:
       submit: 投稿する
     show:
       go_back_to_list: 一覧に戻る
+  my_pages:
+    show:
+      title: マイページ
+      user_id: 会員No.
   header:
     title: Zen Focus
     login: ログイン
