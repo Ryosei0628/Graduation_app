@@ -37,3 +37,15 @@
         </div>
     </div>
 </div>
+<div>
+  <h2 class="text-center mt-6">あなたが投稿したスポット一覧<h2>
+    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+  <div class="mt-10 mb-28"> 
+    <% if @posts.present? %>
+      <%= render @posts %>
+    <% else %>
+   <div class="text-lg m-auto mt-20">投稿はありません</div>
+    <% end %>
+  </div>
+</div>
+</div>
