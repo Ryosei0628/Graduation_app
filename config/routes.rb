@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
   resources :bookmarks, only: %i[create destroy]
   resources :maps, only: %i[index]
-  resource :my_page, only: [:show, :edit, :update]
+  resource :my_page, only: %i[show edit update]
   get "login", to: "user_sessions#new"
   post "login", to: "user_sessions#create"
   delete "logout", to: "user_sessions#destroy"
