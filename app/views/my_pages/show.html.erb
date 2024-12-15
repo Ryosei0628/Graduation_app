@@ -1,6 +1,19 @@
 <h2 class='text-center mt-4 text-xl'><%= t('.title') %></h2>
 
-<div class="w-5/6 max-w-md mx-auto mt-6 p-4 border rounded-xl shadow-md bg-white">
+<div class="text-sm  text-gray-500 border-b border-gray-200 mt-10">
+    <ul class="tabs-container flex justify-center relative">
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 border-b-2 rounded-t-lg " id="info-tab">登録情報</a>
+        </li>
+        <li class="me-2">
+            <a href="#" class="inline-block p-4 border-b-2 rounded-t-lg " id="posts-tab" aria-current="page">あなたが投稿したスポット</a>
+        </li>
+    </ul>
+</div>
+
+<div class="tab-indicator absolute bottom-0 left-0  bg-blue-500 transition-transform duration-300 ease-out"></div>
+
+<div id="info-content" class="w-5/6 max-w-md mx-auto mt-6 p-4 border rounded-xl shadow-md bg-white">
     <div class="mt-6">
         <div class="card border-2">
             <div class="m-4">
@@ -37,15 +50,77 @@
         </div>
     </div>
 </div>
-<div>
-  <h2 class="text-center mt-6">あなたが投稿したスポット一覧<h2>
-    <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
-  <div class="mt-10 mb-28"> 
-    <% if @posts.present? %>
-      <%= render @posts %>
-    <% else %>
-   <div class="text-lg m-auto mt-20">投稿はありません</div>
-    <% end %>
+<div id="posts-content" style="display: none;">
+  <div class="w-5/6 mx-auto max-w-sm md:max-w-4xl">
+    <div class="mt-10 mb-28"> 
+      <% if @posts.present? %>
+        <%= render @posts %>
+      <% else %>
+        <div class="text-lg m-auto mt-20">投稿はありません</div>
+      <% end %>
+    </div>
   </div>
 </div>
-</div>
+<script>
+   document.addEventListener("turbo:load", () => {
+    const tabs = document.querySelectorAll("a[id$='-tab']"); // タブリンク（idで選択）
+    const contents = document.querySelectorAll("div[id$='-content']"); // コンテンツ（idで選択）
+    const tabIndicator = document.querySelector(".tab-indicator"); // スライドバー
+
+    // 初期設定：選択されたタブとそのコンテンツを表示
+    let activeTab = document.querySelector("a.active");
+
+    if (!activeTab && tabs.length > 0) {
+        activeTab = tabs[0]; // 最初のタブをデフォルトで選択
+        activeTab.classList.add("text-blue-600", "border-blue-600", "active");
+    }
+
+    // 初期化処理
+   if (activeTab) {
+        if (tabIndicator) {
+            updateIndicator(activeTab); // 初期化時にインジケーターを設定
+        }
+        showContent(activeTab.id); // 初期化時にコンテンツを表示
+    }
+
+    // タブクリックイベント
+    tabs.forEach(tab => {
+        tab.addEventListener("click", (e) => {
+            e.preventDefault();
+
+            // 既存のactiveクラスをリセット
+            tabs.forEach(t => t.classList.remove("text-blue-600", "border-blue-600", "active"));
+            // 新しいタブにactiveクラスを追加
+            tab.classList.add("text-blue-600", "border-blue-600", "active");
+
+            // インジケーターとコンテンツを更新
+            updateIndicator(tab);
+            showContent(tab.id);
+        });
+    });
+
+    // スライドバーの位置と幅を更新
+    function updateIndicator(tab) {
+        const tabRect = tab.getBoundingClientRect(); // タブの位置とサイズを取得
+        const parentRect = tab.closest('.tabs-container').getBoundingClientRect(); // 親要素を明示的に指定
+        console.log("tabRect:", tabRect);
+    console.log("parentRect:", parentRect);
+        // インジケーターの幅をタブの幅に設定
+        tabIndicator.style.width = `${tabRect.width}px`;
+        // インジケーターの位置をタブの位置に合わせて調整
+        tabIndicator.style.transform = `translateX(${tabRect.left - parentRect.left}px)`;
+    }
+
+    // 該当するコンテンツを表示
+    function showContent(tabId) {
+        contents.forEach(content => {
+            // tabId に対応するコンテンツを表示
+            if (content.id.startsWith(tabId.replace("-tab", ""))) {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        });
+    }
+  });
+</script>
