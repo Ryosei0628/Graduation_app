@@ -32,16 +32,15 @@ module ApplicationHelper
       og: {
         type: 'website',
         title: title.presence || site,
+        description: nil,  # OGPのdescriptionは空にする
         url: request.original_url,
         image:,
         site_name: site
-        description: nil  # OGPのdescriptionは空にする
         },
       twitter: {
         site:,
         card: 'summary_large_image',
         image:
-        description: nil  # Twitterのdescriptionも空にする
          }
     }
       set_meta_tags(configs)
