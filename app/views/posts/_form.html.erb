@@ -18,24 +18,14 @@
 
     <div class='mb-6 flex flex-col items-center'>
       <div class="grid grid-cols-2 gap-2 w-full lg:w-2/3">
-        <div class="flex flex-col w-1/2">
-          <%= f.label :start_hour,  class: 'label mb-2' %>
-          <%= f.select :start_hour, (0..23).to_a.map { |h| ["#{h}時", h] }, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
+        <div class="flex flex-col w-full">
+          <%= f.label :start_time,  class: 'label mb-2' %>
+          <%= f.datetime_select :start_time, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
         </div>
 
         <div class="flex flex-col w-1/2">
-          <%= f.label :start_minute,  class: 'label mb-2' %>
-          <%= f.select :start_minute, [['00分', 0], ["30分",30]], { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
-        </div>
-
-        <div class="flex flex-col w-1/2">
-          <%= f.label :end_hour,  class: 'label mb-2' %>
-          <%= f.select :end_hour, (0..23).to_a.map { |h| ["#{h}時", h] }, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
-        </div>
-
-        <div class="flex flex-col w-1/2">
-          <%= f.label :end_minute,  class: 'label mb-2' %>
-          <%= f.select :end_minute, [["00分",0], ["30分",30]], { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
+          <%= f.label :end_time,  class: 'label mb-2' %>
+          <%= f.datetime_select :end_time, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
         </div>
       </div>
     </div>
