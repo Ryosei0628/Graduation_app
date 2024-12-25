@@ -50,6 +50,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:location_name, :address, :start_hour, :start_minute, :end_hour, :end_minute, :description, :wifi, :electricity, :site_url, :genre, :quiet_level, :post_image, :post_image_cache)
+    params.require(:post).permit(:location_name, :address, :start_time, :end_time, :description, :wifi, :electricity, :site_url, :genre, :quiet_level, :post_image, :post_image_cache)
   end
 end

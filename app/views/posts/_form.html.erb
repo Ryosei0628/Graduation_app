@@ -1,7 +1,7 @@
 <%= form_with model: @post do |f| %>
     <%= render 'shared/error_messages', object: f.object %>
     <div class='mt-10 mb-6 flex flex-col items-center'>
-      <%= f.label :genre, "スポットのジャンル",class: 'label w-full lg:w-2/3 mb-2' %>
+      <%= f.label :genre,"スポットのジャンル(必須)", class: 'label w-full lg:w-2/3 mb-2' %>
       <%= f.select :genre, Post.genres_i18n.invert.to_a, { include_blank: "未選択" },
                   class: "form-input #{'border-red-500' if f.object.errors[:genre].present?}  bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full lg:w-2/3" %>
     </div>
@@ -18,14 +18,20 @@
 
     <div class='mb-6 flex flex-col items-center'>
       <div class="grid grid-cols-2 gap-2 w-full lg:w-2/3">
-        <div class="flex flex-col w-full">
+        <div class="flex flex-col w-full md:w-1/2">
           <%= f.label :start_time,  class: 'label mb-2' %>
-          <%= f.datetime_select :start_time, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
+          <p class = 'text-xs mb-2'>*何も入力しない場合は0時がデフォルトになります。</p>
+        <div class="flex gap-2">
+          <%= f.time_select :start_time, { include_blank: true,  minute_step: 15, prompt: true, ignore_date: true}, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full', value: "" %>
+        </div>
         </div>
 
-        <div class="flex flex-col w-1/2">
+        <div class="flex flex-col w-full md:w-1/2">
           <%= f.label :end_time,  class: 'label mb-2' %>
-          <%= f.datetime_select :end_time, { include_blank: "選択してください" }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3' %>
+          <p class = 'text-xs mb-2'>*何も入力しない場合は0時がデフォルトになります。</p>
+        <div class="flex gap-2">
+          <%= f.time_select :end_time, { include_blank: true,  minute_step: 15 ,prompt: true, ignore_date: true }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full', value: "" %>
+        </div>
         </div>
       </div>
     </div>

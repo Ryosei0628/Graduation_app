@@ -31,18 +31,16 @@ ja:
         password: パスワード
         password_confirmation: パスワード確認
       post:
-        location_name: 場所の名前
-        address: 住所
-        start_hour: 営業開始時間
-        end_hour:  営業終了時間
-        start_minute: 営業開始時間(分)
-        end_minute: 営業終了時間(分)
-        description: 詳細
-        quiet_level: 静かさレベル
+        location_name: 場所の名前(必須)
+        address: 住所(必須)
+        start_time: 営業開始時間 
+        end_time:  営業終了時間
+        description: 詳細(必須)
+        quiet_level: 静かさレベル(必須)
         post_image: 画像
         electricity: 電源
         site_url: サイトURL
-        genre: スポットのジャンル
+        genre: スポットのジャンル(必須)
 
         genre:
           cafe: カフェ
