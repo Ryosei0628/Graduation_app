@@ -24,8 +24,8 @@ class Post < ApplicationRecord
 
   def business_hours
     if start_time.present? && end_time.present?
-    start_formatted = start_time.strftime('%H時%M分')
-    end_formatted = end_time.strftime('%H時%M分')
+    start_formatted = start_time.strftime("%H時%M分")
+    end_formatted = end_time.strftime("%H時%M分")
     "#{start_formatted} - #{end_formatted}"
     else
     "営業時間未設定"
