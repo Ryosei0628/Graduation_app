@@ -56,7 +56,8 @@
           new google.maps.Marker({
             position: currentLatLng,
             map: map,
-            title: '現在地'
+            title: '現在地',
+            icon: '<%= asset_path("pin-icon.png") %>'
           });
         },
         function(error) {
