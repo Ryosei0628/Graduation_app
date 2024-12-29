@@ -4,6 +4,12 @@
     </form>
 </div>
 
+<div class="flex justify-center mt-4">
+    <button id="current-location-btn" class="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300">
+        現在地を表示
+    </button>
+</div>
+
 <div id="map" class="h-[37.5rem] w-full"></div>
 <!-- モーダルのHTML -->
 <dialog id="spot_modal" class="rounded-2xl shadow-2xl w-full sm:max-w-md md:max-w-2xl lg:max-w-xl xl:max-w2xl max-h-[80%] sm:max-h-[40%] md:max-h-[50%] lg:max-h-[60%] mx-auto items-center">
@@ -30,6 +36,39 @@
       styles: styles,
       center: latlng
     });
+
+    document.getElementById('current-location-btn').addEventListener('click', function(event) {
+    event.preventDefault(); // デフォルトのフォーム送信を防ぐ
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        function(position) {
+          // 現在地の座標を取得
+          let currentLatLng = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          // 現在地を中心に設定
+          map.setCenter(currentLatLng);
+
+          // 現在地のマーカーを追加
+          new google.maps.Marker({
+            position: currentLatLng,
+            map: map,
+            title: '現在地',
+            icon: '<%= asset_path("pin-icon.png") %>'
+          });
+        },
+        function(error) {
+          console.error("現在地の取得に失敗しました:", error.message);
+          alert("現在地を取得できませんでした。位置情報の設定を確認してください。");
+        }
+      );
+    } else {
+      alert("このブラウザでは現在地取得がサポートされていません。");
+    }
+  });
 
     let transitLayer = new google.maps.TransitLayer();
     transitLayer.setMap(map);
