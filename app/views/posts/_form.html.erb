@@ -20,7 +20,6 @@
       <div class="grid grid-cols-2 gap-2 w-full lg:w-2/3">
         <div class="flex flex-col w-full md:w-1/2">
           <%= f.label :start_time,  class: 'label mb-2' %>
-          <p class = 'text-xs mb-2'>*何も入力しない場合は0時がデフォルトになります。</p>
         <div class="flex gap-2">
           <%= f.time_select :start_time, { include_blank: true,  minute_step: 15, prompt: true, ignore_date: true}, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full', value: "" %>
         </div>
@@ -28,7 +27,6 @@
 
         <div class="flex flex-col w-full md:w-1/2">
           <%= f.label :end_time,  class: 'label mb-2' %>
-          <p class = 'text-xs mb-2'>*何も入力しない場合は0時がデフォルトになります。</p>
         <div class="flex gap-2">
           <%= f.time_select :end_time, { include_blank: true,  minute_step: 15 ,prompt: true, ignore_date: true }, class: 'bg-card-body bg-base-100 rounded-md border border-accent py-2 px-3 w-full', value: "" %>
         </div>
